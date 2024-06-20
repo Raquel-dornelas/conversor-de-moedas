@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  tomcat:
+    build: .
+    ports:
+      - "8080:8080"  # Porta padrão do Tomcat
+      - "8000:8000"  # Porta para o debugger
+#      - "8080:8080"
+    environment:
+      JPDA_ADDRESS: "0.0.0.0:8000"  # Endereço e porta para o debugger
+      JPDA_TRANSPORT: "dt_socket"   # Tipo de transporte para o debugger
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: convert_coins_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./sql-scripts/:/docker-entrypoint-initdb.d/

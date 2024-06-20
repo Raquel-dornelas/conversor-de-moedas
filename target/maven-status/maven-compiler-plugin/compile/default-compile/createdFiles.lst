@@ -1,0 +1,8 @@
+com\faculdade\convert_coins\servlet\LoadMoedasServlet.class
+com\faculdade\convert_coins\model\User.class
+com\faculdade\convert_coins\model\Moeda.class
+com\faculdade\convert_coins\dao\MoedaDao.class
+TestConnection.class
+com\faculdade\convert_coins\util\HibernateUtil.class
+com\faculdade\convert_coins\servlet\UserServlet.class
+com\faculdade\convert_coins\servlet\CurrencyConverterServlet.class
